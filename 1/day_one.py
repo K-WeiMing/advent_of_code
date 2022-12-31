@@ -2,6 +2,12 @@ import os
 
 
 def part_one(data: list):
+    # Time complexity: O(n)
+    # Space complexity: O(1) -> for part 1
+    # Space complexity: O(n) -> for inclusion of part 2
+
+    # For this section, included an alternative solution for part 2
+    # that requires O(n) space complexity
 
     # Get the elf with the highest number of calories
     max_calories = curr_sum = 0
@@ -28,6 +34,9 @@ def part_one(data: list):
 
 
 def part_two(data):
+    # Time complexity: O(n)
+    # Space complexity: (1)
+
     def update_calories_list(calories, calories_list):
 
         if len(calories_list) < 3:
