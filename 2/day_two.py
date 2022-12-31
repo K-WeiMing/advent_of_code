@@ -93,6 +93,8 @@ def determine_symbol(opponent: str, outcome: str) -> str:
 
 
 def part_one(data):
+    # Time complexity: O(n)
+    # Space complexity: O(1)
 
     curr_score = 0
     for game in data:
@@ -106,6 +108,8 @@ def part_one(data):
 
 
 def part_two(data):
+    # Time complexity: O(n)
+    # Space complexity: O(1)
 
     curr_score = 0
 
