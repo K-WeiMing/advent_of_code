@@ -54,6 +54,9 @@ def format_instructions(input_instruction: List[str]) -> List[int]:
 
 def part_one(stack_info, input_instructions):
 
+    # Time complexity: O(n^2)
+    # Space complexity: O(n)
+
     stacks = load_data(stack_info)
 
     for instruction in input_instructions:
@@ -72,6 +75,9 @@ def part_one(stack_info, input_instructions):
 
 
 def part_two(stack_info, input_instructions):
+    # Time complexity: O(n^2)
+    # Space complexity: O(n)
+
     stacks = load_data(stack_info)
 
     for instruction in input_instructions:

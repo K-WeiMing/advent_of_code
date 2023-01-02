@@ -45,6 +45,8 @@ def check_range_intersection(range_one: list, range_two: list) -> int:
 
 
 def part_one(data):
+    # Time complexity: O(n)
+    # Space complexity: O(1)
 
     intersected = 0
 
@@ -63,6 +65,9 @@ def part_one(data):
 
 
 def part_two(data):
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+
     overlap = 0
 
     for row in data:
