@@ -64,6 +64,7 @@ def part_two(data):
                         break
                 score *= tracker
             scores.append(score)
+
     return max(scores)
 
 
