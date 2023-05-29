@@ -37,7 +37,8 @@ TAIL_UPDATE = {
 
 
 def part_one(data):
-    # movements = [() for i in data]
+    # Time complexity: O(n)
+    # Space complexity: O(n)
 
     # Use a array to keep track of the positions for H and T
     # Note that the starting position fo H and T are the same
@@ -59,6 +60,9 @@ def part_one(data):
 
 
 def part_two(data):
+    # Time complexity: O(n)
+    # Space complexity: O(n)
+
     rope = [np.array([0, 0]) for _ in range(10)]
     # Get the initialized tail position
     tail_positions = set([tuple(rope[9])])
