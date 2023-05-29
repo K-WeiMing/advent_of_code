@@ -92,7 +92,7 @@ def determine_symbol(opponent: str, outcome: str) -> str:
     return OPPONENT_WIN[opponent]
 
 
-def part_one(data):
+def part_one(data: list):
     # Time complexity: O(n)
     # Space complexity: O(1)
 
@@ -107,7 +107,7 @@ def part_one(data):
     return curr_score
 
 
-def part_two(data):
+def part_two(data: list):
     # Time complexity: O(n)
     # Space complexity: O(1)
 
@@ -125,7 +125,6 @@ def part_two(data):
 
 
 if __name__ == "__main__":
-
     # Read in the data
     curr_path = os.path.dirname(os.path.abspath(__file__))
     input_path = "./input.txt"

@@ -1,7 +1,7 @@
 import os
 
 
-def part_one(data):
+def part_one(data: list):
     # Time complexity: O(m*n)
     # Space complexity: O(1)
     ROWS, COLS = len(data), len(data[0])
@@ -12,7 +12,6 @@ def part_one(data):
 
     for row in range(1, ROWS - 1):
         for col in range(1, COLS - 1):
-
             # Iterate through all the trees
             tree = data[row][col]
 
@@ -34,14 +33,13 @@ def part_one(data):
     return total
 
 
-def part_two(data):
+def part_two(data: list):
     # Time complexity: O(m*n)
     # Space complexity: O(1)
     ROWS, COLS = len(data), len(data[0])
     scores = []
     for row in range(1, ROWS - 1):
         for col in range(1, COLS - 1):
-
             # Iterate through all the trees
             tree = data[row][col]
 
@@ -69,7 +67,6 @@ def part_two(data):
 
 
 if __name__ == "__main__":
-
     # Read in the data
     curr_path = os.path.dirname(os.path.abspath(__file__))
     input_path = "./input.txt"

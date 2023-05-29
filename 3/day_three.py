@@ -1,7 +1,7 @@
 import os
 
 
-def part_one(data):
+def part_one(data: list):
     # Time complexity: O(n)
     # Space complexity: O(1)
 
@@ -14,7 +14,6 @@ def part_one(data):
         common_items = set(first).intersection(set(second))
 
         for item in common_items:
-
             if item.islower():
                 priorities += ord(item) - ord("a") + 1
             else:
@@ -24,7 +23,7 @@ def part_one(data):
     return priorities
 
 
-def part_two(data):
+def part_two(data: list):
     # Time complexity: O(n)
     # Space complexity: O(1)
 
@@ -68,7 +67,6 @@ def get_common(com_item: set) -> int:
 
 
 if __name__ == "__main__":
-
     # Read in the data
     curr_path = os.path.dirname(os.path.abspath(__file__))
     input_path = "./input.txt"

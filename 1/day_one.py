@@ -14,7 +14,6 @@ def part_one(data: list):
     calories_list = []
 
     for index, calories in enumerate(data):
-
         if calories != "":
             curr_sum += int(calories)
 
@@ -33,12 +32,11 @@ def part_one(data: list):
     print(f"Sum of calories for top 3 elves: {sum(calories_list[:3])}")
 
 
-def part_two(data):
+def part_two(data: list):
     # Time complexity: O(n)
     # Space complexity: (1)
 
     def update_calories_list(calories, calories_list):
-
         if len(calories_list) < 3:
             calories_list.append(calories)
             return calories_list
@@ -52,7 +50,6 @@ def part_two(data):
     curr_sum = 0
 
     for index, calories in enumerate(data):
-
         if calories != "":
             curr_sum += int(calories)
 
@@ -66,7 +63,6 @@ def part_two(data):
 
 
 if __name__ == "__main__":
-
     # Read in the data
     curr_path = os.path.dirname(os.path.abspath(__file__))
     input_path = "./input.txt"

@@ -36,7 +36,7 @@ TAIL_UPDATE = {
 }
 
 
-def part_one(data):
+def part_one(data: list):
     # Time complexity: O(n)
     # Space complexity: O(n)
 
@@ -59,7 +59,7 @@ def part_one(data):
     return len(tail_positions)
 
 
-def part_two(data):
+def part_two(data: list):
     # Time complexity: O(n)
     # Space complexity: O(n)
 
