@@ -1,5 +1,4 @@
 import os
-from collections import deque
 
 CYCLE_COUNT_CHECK = [20, 60, 100, 140, 180, 220]
 
@@ -7,7 +6,7 @@ CYCLE_COUNT_CHECK = [20, 60, 100, 140, 180, 220]
 def part_one(data: list):
     # Time complexity: O(n)
     # Space complexity: O(1)
-    
+
     total = 0
     signal_strength = 1
 
@@ -36,6 +35,10 @@ def part_one(data: list):
         cycle_count += 1
 
     return total
+
+
+def part_two(data: list):
+    ...
 
 
 if __name__ == "__main__":
