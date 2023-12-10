@@ -1,4 +1,5 @@
 import os
+import collections
 
 CYCLE_COUNT_CHECK = [20, 60, 100, 140, 180, 220]
 
@@ -38,7 +39,44 @@ def part_one(data: list):
 
 
 def part_two(data: list):
-    ...
+    res = [["#" for _ in range(40)] for _ in range(4)]
+
+    x = 1
+    curr_cycle = 1
+    position = 0
+    row = 0
+    q = collections.deque()
+
+    # Keep track of x and current cycle
+    for cycle, d in enumerate(data):
+        if cycle == 241:
+            break
+        curr_cycle = cycle + 1
+
+        # Condition to update row
+        if curr_cycle % 40 == 0:
+            print(res[row])
+            row += 1
+
+        if q:
+            x += q.popleft()
+
+        if curr_cycle not in range(x - 1, x + 2):
+            # if sprite is not within the curr_range
+            # x-1, x, x+1
+            # set the pixel to dim -> "."
+            res[row][(curr_cycle - 1) % 40] = "."
+
+        if "addx" in d:
+            add_value = int(d.split()[1])
+            # addx only triggers two cycles later
+            # if q is empty, add 0
+            if not q:
+                q.append(0)
+            q.append(add_value)
+
+    for r in res:
+        print(r)
 
 
 if __name__ == "__main__":
@@ -49,4 +87,4 @@ if __name__ == "__main__":
         data = file.read().splitlines()
 
     print(f"Answer for part 1: {part_one(data)}")
-    # print(f"Answer for part 2: {part_two(data)}")
+    print(f"Answer for part 2: {part_two(data)}")
