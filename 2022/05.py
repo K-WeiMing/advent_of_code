@@ -40,7 +40,6 @@ def format_instructions(input_instruction: List[str]) -> List[int]:
         List[str]: Instructions in array format e.g. [1, 10, 5]
     """
     for index, instruction in enumerate(input_instruction):
-
         instruction = (
             instruction.replace("move ", "")
             .replace("from ", "")
@@ -53,7 +52,6 @@ def format_instructions(input_instruction: List[str]) -> List[int]:
 
 
 def part_one(stack_info, input_instructions):
-
     # Time complexity: O(n^2)
     # Space complexity: O(n)
 
@@ -98,7 +96,6 @@ def part_two(stack_info, input_instructions):
 
 
 if __name__ == "__main__":
-
     # Read in the data
     curr_path = os.path.dirname(os.path.abspath(__file__))
     input_path = "./input.txt"

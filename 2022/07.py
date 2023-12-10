@@ -36,7 +36,6 @@ def part_one(data: List[str]) -> int:
 
 
 if __name__ == "__main__":
-
     # Read in the data
     curr_path = os.path.dirname(os.path.abspath(__file__))
     input_path = "./input.txt"
