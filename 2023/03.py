@@ -1,5 +1,5 @@
 from load_input import load_data
-from typing import List
+from typing import List, Tuple
 
 data: List[str] = load_data()
 
@@ -8,7 +8,7 @@ ROWS, COLS = len(data), len(data[0])
 DIRECTIONS = [[1, 0], [-1, 0], [0, 1], [0, -1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
 
 
-def two_ptr(row_index, col_index):
+def two_ptr(row_index: int, col_index: int) -> Tuple[int, int]:
     # Use two pointers to get the entire number
     l, r = col_index, col_index
 
@@ -24,7 +24,7 @@ def two_ptr(row_index, col_index):
     return l, r
 
 
-def part_one():
+def part_one() -> int:
     res = 0
     for i in range(ROWS):
         for j in range(COLS):
@@ -40,7 +40,7 @@ def part_one():
     return res
 
 
-def part_two():
+def part_two() -> int:
     res = 0
     for i in range(ROWS):
         for j in range(COLS):

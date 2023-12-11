@@ -7,7 +7,7 @@ data: List[str] = load_data()
 CUBE_LIMITS = {"red": 12, "green": 13, "blue": 14}
 
 
-def part_one():
+def part_one() -> int:
     res = 0
 
     for d in data:
@@ -33,7 +33,7 @@ def part_one():
     return res
 
 
-def part_two():
+def part_two() -> int:
     res = 0
 
     for d in data:

@@ -16,7 +16,7 @@ mapping = {
 }
 
 
-def part_one():
+def part_one() -> int:
     calibration_values = 0
 
     for d in data:
@@ -38,7 +38,7 @@ def part_one():
     return calibration_values
 
 
-def part_two():
+def part_two() -> int:
     calibration_values = 0
 
     for d in data:
