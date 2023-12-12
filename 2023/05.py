@@ -45,6 +45,58 @@ def update_seeds(r_start: int, r_end: int, seed_vals: List[int]) -> List[int]:
     return seed_vals
 
 
+def update_seed_ranges(r_start: int, r_end: int, seed_ranges: List[int]) -> List[int]:
+    """
+    Updates the mapping based on the input information on seed ranges
+
+    Args:
+        r_start (int): row start
+        r_end (int): row end
+        seed_ranges (List[int]): Seed ranges map
+
+    Returns:
+        List[int]: List of updated seed ranges map
+    """
+    seed_rng_updated = []
+    for i in range(len(seed_ranges)):
+        for j in range(r_start, r_end):
+            # Update the ranges based on the mapping provided
+            # Note that the incoming array may be split into a maximum of 3 separate ranges
+            dest, src, rng = convert_mapping(data[j])
+
+            # Check start of the range
+            # 1. if its less than src
+            # 2. if its >= src and < src + rng
+            # 3. if its >= src + rng: Maintain the range
+            seed_rng_start = seed_ranges[i][0]
+            seed_rng_end = seed_ranges[i][1]
+            if seed_rng_start >= src + rng:
+                seed_rng_updated.append(seed_ranges[i])
+            elif seed_rng_start < src:
+                # Check if the ending range is within or exceeding src + rng
+                if seed_rng_end >= src + rng:
+                    # First half of the range
+                    seed_rng_updated.append([seed_rng_start, src - 1])
+                    # Second half of the range (Re-mapped)
+                    seed_rng_updated.append([dest, dest + rng - 1])
+                    # Third part of the range, note that this may be in another mapping
+
+                elif seed_rng_end >= src:
+                    ...
+                else:
+                    # Update end range and append
+                    delta = seed_rng_end - src
+                    seed_rng_end = delta + dest
+                    seed_rng_updated.append([seed_rng_start, seed_rng_end])
+
+            elif src <= seed_rng_start < src + rng:
+                # Check if the ending range is within or exceeding src + rng
+                # Update start boundary
+                ...
+                delta = seed_ranges[i][0] - src
+                new_start = dest + delta
+
+
 def update_row_num(r: int, section_name: str) -> Tuple[int, int]:
     """
     Get the row start and row end, note that row end is n + 1, (data[row_num] == "")
@@ -109,6 +161,29 @@ def iterate_map(row_num: int, seeds: List[int]) -> int:
     return min(seeds)
 
 
+def get_seed_ranges(seed_vals: List[int]) -> List[list]:
+    """
+    Generates a list of seed ranges instead of using actual seed values
+
+    Args:
+        seed_vals (List[int]): Initial seed values
+
+    Returns:
+        List[List[int, int]]: Updated to seed ranges
+    """
+    rng = []
+    tmp = []
+    for i in range(len(seed_vals)):
+        if (i + 1) % 2 != 0:
+            tmp.append(seed_vals[i])
+        else:
+            # With the even number, end of range can be obtained
+            tmp.append(tmp[0] + seed_vals[i] - 1)
+            rng.append(tmp.copy())
+            tmp = []
+    return rng
+
+
 def part_one() -> int:
     seeds = convert_mapping(data[0].split("seeds:")[1].lstrip())
 
@@ -118,20 +193,10 @@ def part_one() -> int:
 
 def part_two() -> int:
     seeds = convert_mapping(data[0].split("seeds:")[1].lstrip())
-    seeds_list = []
-    # Expand the seed ranges into a list of each seed number
-    # init dummy values
-    rng_start = 0
-    rng_end = 0
-    for i in range(len(seeds)):
-        if (i + 1) % 2 != 0:
-            rng_start = seeds[i]
-        else:
-            # With the even number the range of numbers can be obtained
-            rng_end = seeds[i]
-            seeds_list += [s for s in range(rng_start, rng_start + rng_end + 1)]
-            ic(seeds_list)
 
+    # Store the seeds in format of [[seed_start, seed_end], ...]
+    seed_ranges = get_seed_ranges(seeds)
+    ic(seed_ranges)
     r_num = 2
     return iterate_map(r_num, seeds)
 
