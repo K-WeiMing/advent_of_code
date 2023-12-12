@@ -8,7 +8,7 @@ data: List[str] = load_data()
 def d_travelled(i: int, total_t: int) -> int:
     """
     Computes the distance based on the formula of
-    n * time - n
+    n * (time - n)
 
     Args:
         i (int): time spent pressing the button
