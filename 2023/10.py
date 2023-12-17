@@ -8,4 +8,8 @@ def part_one() -> int:
     ...
 
 
+def part_two() -> int:
+    ...
+
+
 print(part_one())
