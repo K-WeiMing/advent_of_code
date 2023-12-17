@@ -21,7 +21,6 @@ def gen_hist(line: str) -> int:
     hist = [curr_row]
 
     # Iterate through to get the last line of zeros
-    # while sum(curr_row) != 0:
     while any(n != 0 for n in curr_row):
         next_row = []
 
@@ -60,7 +59,6 @@ def gen_hist_front(line: str) -> int:
     hist = [curr_row]
 
     # Iterate through to get the last line of zeros
-    # while sum(curr_row) != 0:
     while any(n != 0 for n in curr_row):
         next_row = []
 
