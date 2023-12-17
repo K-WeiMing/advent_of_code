@@ -10,8 +10,6 @@ def load_data():
     f_path = os.path.join(f_path, "inputs", input_file_name)
     print(f_path)
     with open(f_path, "r") as file:
-        data = file.readlines()
+        data = file.read().splitlines()
 
-    # Replace '\n' in the inputs
-    data = [str(i.replace("\n", "")) for i in data]
     return data
