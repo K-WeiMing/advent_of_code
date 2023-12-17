@@ -1,6 +1,6 @@
 from typing import List
 from load_input import load_data
-from icecream import ic
+
 
 data: List[str] = load_data()
 
@@ -40,7 +40,7 @@ def gen_hist(line: str) -> int:
         curr_num = hist[i][-1]
         next_num = hist[i - 1][-1]
         hist[i - 1].append(curr_num + next_num)
-    # ic(hist)
+
     return hist[0][-1]
 
 
